@@ -70,6 +70,11 @@
                                         <accessibility key="accessibilityConfiguration" identifier="CurrencyTableViewCell">
                                             <accessibilityTraits key="traits" none="YES"/>
                                         </accessibility>
+                                        <connections>
+                                            <outlet property="codeLbl" destination="9PM-Mz-N4p" id="nds-7T-mtw"/>
+                                            <outlet property="nameLbl" destination="yFE-8E-VVT" id="lHb-2b-xVw"/>
+                                            <outlet property="valueTxtField" destination="nwI-gg-bz6" id="yhX-6r-Hav"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

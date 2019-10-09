@@ -10,6 +10,10 @@ import UIKit
 
 class CurrencyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var codeLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var valueTxtField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
