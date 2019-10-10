@@ -11,10 +11,14 @@ import Foundation
 class Currency {
     var code: String = ""
     var value: Double = 0.0
+    var name = ""
     
     init(code: String, value: Double) {
         self.code = code
         self.value = value
+        if let name = curranciesName[code] {
+            self.name = name
+        }
     }
     
 }

@@ -19,6 +19,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         if let cell = currencyTable.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as? CurrencyTableViewCell {
             cell.codeLbl.text = currancies[indexPath.row].code
             cell.valueTxtField.text = "\(String(describing: currancies[indexPath.row].value))"
+            cell.nameLbl.text = currancies[indexPath.row].name
             return cell
         }
         return UITableViewCell()
@@ -27,5 +28,8 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ind = IndexPath(row: 0, section: 0)
         currencyTable.moveRow(at: indexPath, to: ind)
+        let cell = currencyTable.cellForRow(at: indexPath) as! CurrencyTableViewCell
+        baseCur = cell.codeLbl.text!
+        getData()
     }
 }

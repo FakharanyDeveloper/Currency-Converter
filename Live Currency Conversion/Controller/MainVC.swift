@@ -14,14 +14,16 @@ class MainVC: UIViewController {
     @IBOutlet weak var currencyTable: UITableView!
     
     var currancies = [Currency]()
+    var baseCur = "EUR"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData(base: "EUR")
+        getData()
     }
     
-    func getData(base: String){
-        AF.request("https://api.exchangeratesapi.io/latest?base=\(base)").responseJSON { response in
+    func getData(){
+        currancies.removeAll()
+        AF.request("https://api.exchangeratesapi.io/latest?base=\(baseCur)").responseJSON { response in
             if let result = response.value as? Dictionary<String,Any> {
                 if let rates = result["rates"] as? Dictionary<String,Double> {
                     for key in rates.keys {

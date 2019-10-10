@@ -6,4 +6,11 @@
 //  Copyright © 2019 Khaled Fakharany. All rights reserved.
 //
 
-import Foundation
+let curranciesName = ["CAD": "Canadian Dollar",
+                      "HKD":"Hong Kong Dollar",
+                      "ISK":"Icelandic Króna",
+                      "PHP":"Philippine peso",
+                      "DKK":"Danish Krone",
+                      "HUF":"Hungarian Forint",
+                      "CZK":"Czech Koruna",
+                      "AUD":"Australian Dollar"]
