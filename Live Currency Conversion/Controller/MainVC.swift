@@ -12,6 +12,7 @@ import Alamofire
 class MainVC: UIViewController {
 
     @IBOutlet weak var currencyTable: UITableView!
+    @IBOutlet weak var currancyTableConstraint: NSLayoutConstraint!
     
     var currancies = [Currency]()
     var baseCur = "EUR"
@@ -23,6 +24,18 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scheduledTimerWithTimeInterval()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.currancyTableConstraint.constant = keyboardSize.height
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.currancyTableConstraint.constant  = 0
     }
     
     func scheduledTimerWithTimeInterval(){

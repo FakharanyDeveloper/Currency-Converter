@@ -100,6 +100,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Currency conversion" id="POj-RM-aS9"/>
                     <connections>
+                        <outlet property="currancyTableConstraint" destination="6ft-xo-9Ov" id="PuU-mR-nAB"/>
                         <outlet property="currencyTable" destination="N9f-lC-4sd" id="e22-qs-jA3"/>
                     </connections>
                 </viewController>
