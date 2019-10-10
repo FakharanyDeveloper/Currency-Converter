@@ -53,31 +53,43 @@
                                                         <constraint firstItem="yFE-8E-VVT" firstAttribute="height" secondItem="gyS-hN-pHb" secondAttribute="height" multiplier="1:3" id="yXp-0i-ntQ"/>
                                                     </constraints>
                                                 </stackView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.112" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nwI-gg-bz6">
-                                                    <rect key="frame" x="288.33333333333331" y="17.333333333333332" width="115.66666666666669" height="39.333333333333343"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
-                                                </textField>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="C1u-1I-AwU">
+                                                    <rect key="frame" x="288.33333333333331" y="10" width="115.66666666666669" height="54"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.112" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nwI-gg-bz6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="115.66666666666667" height="30.666666666666668"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                        </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wz-3T-Hcw">
+                                                            <rect key="frame" x="0.0" y="39.666666666666664" width="115.66666666666667" height="14.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="8yz-lx-r11" secondAttribute="trailing" constant="3" id="3vK-bG-FfI"/>
-                                                <constraint firstItem="nwI-gg-bz6" firstAttribute="centerY" secondItem="Bme-Oj-3em" secondAttribute="centerY" id="9Zu-OW-s04"/>
+                                                <constraint firstItem="C1u-1I-AwU" firstAttribute="leading" secondItem="gyS-hN-pHb" secondAttribute="trailing" constant="10" id="4vD-hk-2KT"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="centerY" secondItem="Bme-Oj-3em" secondAttribute="centerY" id="EAa-Br-wQP"/>
                                                 <constraint firstItem="8yz-lx-r11" firstAttribute="leading" secondItem="Bme-Oj-3em" secondAttribute="leading" constant="3" id="MrA-n1-btr"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="height" secondItem="Bme-Oj-3em" secondAttribute="height" multiplier="8:10" id="Py2-Pe-beq"/>
-                                                <constraint firstItem="nwI-gg-bz6" firstAttribute="height" secondItem="gyS-hN-pHb" secondAttribute="height" multiplier="2:3" id="RJX-eZ-4I0"/>
                                                 <constraint firstAttribute="bottom" secondItem="8yz-lx-r11" secondAttribute="bottom" constant="3" id="Thd-NW-9ZJ"/>
-                                                <constraint firstItem="nwI-gg-bz6" firstAttribute="leading" secondItem="gyS-hN-pHb" secondAttribute="trailing" constant="10" id="XR8-iw-Yfe"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="width" secondItem="Bme-Oj-3em" secondAttribute="width" multiplier="6:10" id="ajH-Oh-WR5"/>
-                                                <constraint firstAttribute="trailing" secondItem="nwI-gg-bz6" secondAttribute="trailing" constant="10" id="bVy-ri-7V0"/>
                                                 <constraint firstItem="8yz-lx-r11" firstAttribute="top" secondItem="Bme-Oj-3em" secondAttribute="top" constant="3" id="cp6-mx-ZrG"/>
+                                                <constraint firstItem="C1u-1I-AwU" firstAttribute="top" secondItem="Bme-Oj-3em" secondAttribute="top" constant="10" id="fJo-xp-Urs"/>
+                                                <constraint firstAttribute="trailing" secondItem="C1u-1I-AwU" secondAttribute="trailing" constant="10" id="fne-Vz-bui"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="leading" secondItem="Bme-Oj-3em" secondAttribute="leadingMargin" constant="10" id="tpI-36-aFk"/>
+                                                <constraint firstAttribute="bottom" secondItem="C1u-1I-AwU" secondAttribute="bottom" constant="10" id="vNv-0f-DgB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="background" destination="8yz-lx-r11" id="ybY-rX-Hyu"/>
                                             <outlet property="codeLbl" destination="9PM-Mz-N4p" id="nds-7T-mtw"/>
+                                            <outlet property="exchangeRate" destination="3Wz-3T-Hcw" id="bb9-BX-mXv"/>
                                             <outlet property="nameLbl" destination="yFE-8E-VVT" id="lHb-2b-xVw"/>
                                             <outlet property="valueTxtField" destination="nwI-gg-bz6" id="yhX-6r-Hav"/>
                                         </connections>
