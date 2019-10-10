@@ -15,6 +15,7 @@ class MainVC: UIViewController {
     
     var currancies = [Currency]()
     var baseCur = "EUR"
+    var firstFitch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,19 +23,28 @@ class MainVC: UIViewController {
     }
     
     func getData(){
-        currancies.removeAll()
         AF.request("https://api.exchangeratesapi.io/latest?base=\(baseCur)").responseJSON { response in
             if let result = response.value as? Dictionary<String,Any> {
                 if let rates = result["rates"] as? Dictionary<String,Double> {
                     for key in rates.keys {
-                        print("\(key): \(String(describing: rates[key]!))")
-                        self.currancies.append(Currency(code: key, value: rates[key]!))
+                        if self.firstFitch {
+                            for item in self.currancies {
+                                if item.code == key {
+                                    item.value = rates[key]!
+                                }
+                            }
+                        }else {
+                            self.currancies.append(Currency(code: key, value: rates[key]!))
+                        }
                     }
                 }
             }
-            self.currancies = self.currancies.sorted(by: { $0.code < $1.code })
-            if self.baseCur == "EUR" {
-                self.currancies.insert(Currency(code: self.baseCur, value: 1), at: 0)
+            if !self.firstFitch {
+                self.currancies = self.currancies.sorted(by: { $0.code < $1.code })
+                if self.baseCur == "EUR" {
+                    self.currancies.insert(Currency(code: self.baseCur, value: 1), at: 0)
+                }
+                self.firstFitch = true
             }
             self.currencyTable.reloadData()
         }
