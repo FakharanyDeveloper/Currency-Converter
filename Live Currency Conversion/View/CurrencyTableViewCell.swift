@@ -13,6 +13,7 @@ class CurrencyTableViewCell: UITableViewCell {
     @IBOutlet weak var codeLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var valueTxtField: UITextField!
+    @IBOutlet weak var background: UIView!
     var delegate: CurrencyTableViewCellDelegate?
     
     override func awakeFromNib() {

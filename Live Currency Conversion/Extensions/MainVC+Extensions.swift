@@ -18,16 +18,17 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = currencyTable.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as? CurrencyTableViewCell {
             if indexPath.row == 0 {
-                cell.backgroundColor = .black
+                cell.background.backgroundColor = .black
                 cell.codeLbl.textColor = .white
                 cell.nameLbl.textColor = .white
                 cell.valueTxtField.textColor = .white
             }else {
-                cell.backgroundColor = .white
+                cell.background.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.05)
                 cell.codeLbl.textColor = .black
                 cell.nameLbl.textColor = .black
                 cell.valueTxtField.textColor = .black
             }
+            cell.background.layer.cornerRadius = cell.layer.frame.height/8
             cell.codeLbl.text = currancies[indexPath.row].code
             cell.valueTxtField.text = "\(Double(round(1000*(currancies[indexPath.row].value*currentMultiplier))/1000))"
             cell.nameLbl.text = currancies[indexPath.row].name
@@ -59,6 +60,11 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         changedBaseCur = true
         getData()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
 }
 
 extension MainVC: CurrencyTableViewCellDelegate {

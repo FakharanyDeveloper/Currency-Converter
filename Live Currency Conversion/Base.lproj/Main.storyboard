@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-lC-4sd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-lC-4sd">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -26,21 +26,25 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MxX-OL-5Oe" id="Bme-Oj-3em">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yz-lx-r11">
+                                                    <rect key="frame" x="3" y="3" width="408" height="68"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gyS-hN-pHb">
-                                                    <rect key="frame" x="30.000000000000014" y="7.3333333333333357" width="248.33333333333337" height="59.000000000000007"/>
+                                                    <rect key="frame" x="30.000000000000014" y="7.3333333333333321" width="248.33333333333337" height="59.333333333333343"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PM-Mz-N4p">
-                                                            <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="34.333333333333336"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PM-Mz-N4p">
+                                                            <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="34.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="British Pound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFE-8E-VVT">
-                                                            <rect key="frame" x="0.0" y="39.333333333333329" width="248.33333333333334" height="19.666666666666671"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="39.666666666666664" width="248.33333333333334" height="19.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -50,24 +54,29 @@
                                                     </constraints>
                                                 </stackView>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.112" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nwI-gg-bz6">
-                                                    <rect key="frame" x="288.33333333333331" y="17.333333333333329" width="115.66666666666669" height="39"/>
+                                                    <rect key="frame" x="288.33333333333331" y="17.333333333333332" width="115.66666666666669" height="39.333333333333343"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="8yz-lx-r11" secondAttribute="trailing" constant="3" id="3vK-bG-FfI"/>
                                                 <constraint firstItem="nwI-gg-bz6" firstAttribute="centerY" secondItem="Bme-Oj-3em" secondAttribute="centerY" id="9Zu-OW-s04"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="centerY" secondItem="Bme-Oj-3em" secondAttribute="centerY" id="EAa-Br-wQP"/>
+                                                <constraint firstItem="8yz-lx-r11" firstAttribute="leading" secondItem="Bme-Oj-3em" secondAttribute="leading" constant="3" id="MrA-n1-btr"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="height" secondItem="Bme-Oj-3em" secondAttribute="height" multiplier="8:10" id="Py2-Pe-beq"/>
                                                 <constraint firstItem="nwI-gg-bz6" firstAttribute="height" secondItem="gyS-hN-pHb" secondAttribute="height" multiplier="2:3" id="RJX-eZ-4I0"/>
+                                                <constraint firstAttribute="bottom" secondItem="8yz-lx-r11" secondAttribute="bottom" constant="3" id="Thd-NW-9ZJ"/>
                                                 <constraint firstItem="nwI-gg-bz6" firstAttribute="leading" secondItem="gyS-hN-pHb" secondAttribute="trailing" constant="10" id="XR8-iw-Yfe"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="width" secondItem="Bme-Oj-3em" secondAttribute="width" multiplier="6:10" id="ajH-Oh-WR5"/>
                                                 <constraint firstAttribute="trailing" secondItem="nwI-gg-bz6" secondAttribute="trailing" constant="10" id="bVy-ri-7V0"/>
+                                                <constraint firstItem="8yz-lx-r11" firstAttribute="top" secondItem="Bme-Oj-3em" secondAttribute="top" constant="3" id="cp6-mx-ZrG"/>
                                                 <constraint firstItem="gyS-hN-pHb" firstAttribute="leading" secondItem="Bme-Oj-3em" secondAttribute="leadingMargin" constant="10" id="tpI-36-aFk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="background" destination="8yz-lx-r11" id="ybY-rX-Hyu"/>
                                             <outlet property="codeLbl" destination="9PM-Mz-N4p" id="nds-7T-mtw"/>
                                             <outlet property="nameLbl" destination="yFE-8E-VVT" id="lHb-2b-xVw"/>
                                             <outlet property="valueTxtField" destination="nwI-gg-bz6" id="yhX-6r-Hav"/>
