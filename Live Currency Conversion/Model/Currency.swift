@@ -9,8 +9,8 @@
 import Foundation
 
 class Currency {
-    var code: String?
-    var value: Double?
+    var code: String = ""
+    var value: Double = 0.0
     
     init(code: String, value: Double) {
         self.code = code

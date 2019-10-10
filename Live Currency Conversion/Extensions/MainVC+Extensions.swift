@@ -11,17 +11,17 @@ import UIKit
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = currancies?.count ?? 0 > 0 ? currancies!.count : 0
+        let count = currancies.count > 0 ? currancies.count : 0
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .red
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: cell.layer.frame.width, height: cell.layer.frame.height))
-        label.text = "\(indexPath.row)"
-        cell.addSubview(label)
-        return cell
+        if let cell = currencyTable.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as? CurrencyTableViewCell {
+            cell.codeLbl.text = currancies[indexPath.row].code
+            cell.valueTxtField.text = "\(String(describing: currancies[indexPath.row].value))"
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
