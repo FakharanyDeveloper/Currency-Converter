@@ -22,11 +22,13 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
                 cell.codeLbl.textColor = .white
                 cell.nameLbl.textColor = .white
                 cell.valueTxtField.textColor = .white
+                cell.valueTxtField.isUserInteractionEnabled = true
             }else {
                 cell.background.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.05)
                 cell.codeLbl.textColor = .black
                 cell.nameLbl.textColor = .black
                 cell.valueTxtField.textColor = .black
+                cell.valueTxtField.isUserInteractionEnabled = false
             }
             cell.background.layer.cornerRadius = cell.layer.frame.height/8
             cell.codeLbl.text = currancies[indexPath.row].code
