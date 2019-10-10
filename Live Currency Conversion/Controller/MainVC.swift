@@ -33,7 +33,9 @@ class MainVC: UIViewController {
                 }
             }
             self.currancies = self.currancies.sorted(by: { $0.code < $1.code })
-            self.currancies.insert(Currency(code: self.baseCur, value: 1), at: 0)
+            if self.baseCur == "EUR" {
+                self.currancies.insert(Currency(code: self.baseCur, value: 1), at: 0)
+            }
             self.currencyTable.reloadData()
         }
     }
