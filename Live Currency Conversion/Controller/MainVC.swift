@@ -30,6 +30,7 @@ class MainVC: UIViewController {
                     }
                 }
             }
+            self.currancies = self.currancies.sorted(by: { $0.code < $1.code })
             self.currencyTable.reloadData()
         }
     }
