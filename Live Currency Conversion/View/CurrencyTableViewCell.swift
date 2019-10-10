@@ -28,7 +28,6 @@ class CurrencyTableViewCell: UITableViewCell {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        print("Edited")
         if let value = textField.text {
             let mult = Double(value)
             if let doubleMult = mult {

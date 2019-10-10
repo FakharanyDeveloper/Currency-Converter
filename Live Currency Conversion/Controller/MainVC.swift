@@ -16,13 +16,21 @@ class MainVC: UIViewController {
     var currancies = [Currency]()
     var baseCur = "EUR"
     var firstFitch = false
+    var timer = Timer()
+    var changedBaseCur = false
+    var currentMultiplier = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        scheduledTimerWithTimeInterval()
     }
     
-    func getData(){
+    func scheduledTimerWithTimeInterval(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
+    }
+    
+    @objc func getData(){
+        print("GetData Refreshed")
         AF.request("https://api.exchangeratesapi.io/latest?base=\(baseCur)").responseJSON { response in
             if let result = response.value as? Dictionary<String,Any> {
                 if let rates = result["rates"] as? Dictionary<String,Double> {
@@ -45,8 +53,15 @@ class MainVC: UIViewController {
                     self.currancies.insert(Currency(code: self.baseCur, value: 1), at: 0)
                 }
                 self.firstFitch = true
+                self.currencyTable.reloadData()
             }
-            self.currencyTable.reloadData()
+            
+            if self.changedBaseCur {
+                self.currencyTable.reloadData()
+                self.changedBaseCur = false
+            }
+            
+            self.updateCellValue()
         }
     }
 }
