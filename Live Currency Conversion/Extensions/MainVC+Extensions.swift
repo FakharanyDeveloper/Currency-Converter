@@ -31,6 +31,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             cell.codeLbl.text = currancies[indexPath.row].code
             cell.valueTxtField.text = "\(String(describing: currancies[indexPath.row].value))"
             cell.nameLbl.text = currancies[indexPath.row].name
+            cell.delegate = self
             return cell
         }
         return UITableViewCell()
@@ -56,5 +57,21 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         }
         self.currancies.insert(choosenCurrency, at: 0)
         getData()
+    }
+}
+
+extension MainVC: CurrencyTableViewCellDelegate {
+    func textFieldEdited(multiplier: Double) {
+        print(multiplier)
+        for cell in currencyTable.visibleCells {
+            if let row = cell as? CurrencyTableViewCell {
+                if !(row.codeLbl.text == baseCur) {
+                    if let index = self.currencyTable.indexPath(for: row) {
+                        let value = currancies[index.row].value
+                        row.valueTxtField.text = "\(Double(round(1000*(value*multiplier))/1000))"
+                    }
+                }
+            }
+        }
     }
 }
